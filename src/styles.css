@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
+
 html {
   overflow-x: hidden;
 }
@@ -19,23 +22,18 @@ h2 {
   height: 475px;
 }
 
-
-/* width */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #464646;
 }

@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class YoutubeDataService {
   private messageSource = new BehaviorSubject('default message');
   currentMessage = this.messageSource.asObservable();
-  res: any = ['TEST'];
+  res: any = ['Initial'];
   watchedVideo: any;
   constructor() {}
 

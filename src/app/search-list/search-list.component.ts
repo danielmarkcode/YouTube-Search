@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { VideoObj } from '../services/youtube-video.model';
+import { VideoObj } from '../utils/youtube-video.model';
 import { YoutubeDataService } from '../services/youtube-data.service';
 
 @Component({

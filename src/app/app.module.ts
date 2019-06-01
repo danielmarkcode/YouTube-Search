@@ -6,16 +6,22 @@ import { AppComponent } from './app.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchListComponent } from './search-list/search-list.component';
 import { SearchService } from './services/youtube-search.service';
+import { SearchHomeComponent } from './search-home/search-home.component';
+import { Http404Component } from './utils/http404/http404.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
-    SearchListComponent
+    SearchListComponent,
+    Http404Component,
+    SearchHomeComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [SearchService],
   bootstrap: [AppComponent]

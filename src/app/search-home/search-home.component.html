@@ -1,0 +1,57 @@
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large" (click)="w3_close()">X</button>
+  <a href="/" class="w3-bar-item w3-button active">Home</a>
+  <a class="w3-bar-item w3-button" (click)="loadTrending();">Trending</a>
+  <a class="w3-bar-item w3-button" data-toggle="modal" data-target="#myModal">Contact</a>
+</div>
+
+
+<div id="main">
+
+  <div class="w3-teal">
+    <button id="openNav" class="w3-button w3-teal w3-xlarge" (click)="w3_open()">&#9776;</button>
+    <img src="../assets/youtube.png" class="logo" href="/">
+
+    <div class="w3-container">
+    </div>
+  </div>
+
+  <div class='container'>
+    <div class="page-header">
+      <img style="float: right; width:40px; height: 40px;" *ngIf="loading" src='assets/images/loading.gif' />
+    </div>
+
+    <div class="row">
+      <div class="input-group input-group-lg col-sm-8 col-md-8">
+        <app-search-bar (loading)="loading = $event" (results)="fetchResult($event)" autocomplete="on"></app-search-bar>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:20px">
+      <p>{{message}}</p>
+      <app-search-list *ngFor="let resultList of resultList" [result]="resultList"></app-search-list>
+    </div>
+  </div>
+
+  <!-- Contact  Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="col-md-4">
+          <div class="card profile-card-1">
+            <img
+              src="https://images.pexels.com/photos/946351/pexels-photo-946351.jpeg?w=500&h=650&auto=compress&cs=tinysrgb"
+              class="background" />
+            <img src="../../assets/images/avatar.jpg" class="profile" />
+            <div class="card-content">
+              <h2>Daniel Mark <small>Full Stack Web Developer</small></h2>
+              <div class="icon-block">
+                <a href="https://www.facebook.com/danielmarkjohn"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/danielmarkj/"> <i class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/danielmarkcode"> <i class="fa fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

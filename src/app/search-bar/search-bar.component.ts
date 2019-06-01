@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ElementRef } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, filter, debounceTime, tap, switchAll } from 'rxjs/operators';
-import { VideoObj } from '../services/youtube-video.model';
+import { VideoObj } from '../utils/youtube-video.model';
 import { SearchService } from '../services/youtube-search.service';
 
 @Component({
@@ -41,4 +41,20 @@ export class SearchBarComponent implements OnInit {
       );
   }
 
+  homePageLoad() {
+      this.youtube.search('Indian News Live')
+      .subscribe(
+        _results => {
+          this.loading.emit(false);
+          this.results.emit(_results);
+        },
+        err => {
+          console.log(err);
+          this.loading.emit(false);
+        },
+        () => {
+          this.loading.emit(false);
+        }
+      );
+  }
 }
