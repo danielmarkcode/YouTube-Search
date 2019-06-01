@@ -1,20 +1,54 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large" (click)="w3_close()">X</button>
+  <a href="/" class="w3-bar-item w3-button active" >Home</a>
+  <a class="w3-bar-item w3-button" (click)="loadTrending();" >Trending</a>
+  <a class="w3-bar-item w3-button" data-toggle="modal" data-target="#myModal">Contact</a>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+
+<div id="main">
+
+  <div class="w3-teal">
+    <button id="openNav" class="w3-button w3-teal w3-xlarge" (click)="w3_open()">&#9776;</button>
+    <img src="../assets/youtube.png" class="logo" href="/">
+
+    <div class="w3-container">
+    </div>
+  </div>
+
+  <div class='container'>
+    <div class="page-header">
+      <img style="float: right; width:40px; height: 40px;" *ngIf="loading" src='assets/images/loading.gif' />
+    </div>
+
+    <div class="row">
+      <div class="input-group input-group-lg col-sm-8 col-md-8">
+        <app-search-bar (loading)="loading = $event" (results)="fetchResult($event)" autocomplete="on"></app-search-bar>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:20px">
+      <p>{{message}}</p>
+      <app-search-list *ngFor="let resultList of resultList" [result]="resultList"></app-search-list>
+    </div>
+  </div>
+
+   <!-- Contact  Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="card">
+          <h1>Daniel Mark</h1>
+          <p class="title">Full Stack Developer</p>
+          <p>Mail: danielmarkcode@gmail.com</p>
+          <p>Phones: +91 9845-985-821</p>
+          <div class="social-icons">
+            <a href="https://github.com/danielmarkcode"><i class="fa fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/danielmarkj/"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/danielmarkjohn"><i class="fa fa-facebook"></i></a>
+          </div>
+          <p><button>Contact</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
