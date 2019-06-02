@@ -4,8 +4,8 @@ import { Http404Component } from './utils/http404/http404.component';
 import { SearchHomeComponent } from './search-home/search-home.component';
 
 const appRoutes: Routes = [
-  { path: 'home', component: SearchHomeComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'youtube/feed', component: SearchHomeComponent },
+  { path: '', redirectTo: 'youtube/feed', pathMatch: 'full' },
   { path: '**', component: Http404Component }
 ];
 

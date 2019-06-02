@@ -12,14 +12,13 @@ export class SearchService {
 
   constructor(private http: HttpClient) { }
 
-  search(query: string): Observable<VideoObj[]> {
-    console.log(YTConstants);
-    const params: string = [
+  search(query: string): Observable<VideoObj[]> { // Search Service
+    const params: string = [ // Search Service query Params
       `q=${query}`,
       `key=${YTConstants.API_KEY}`,
-      `part=snippet`,
-      `type=video`,
-      `maxResults=30`
+      `part=${YTConstants.PART}`,
+      `type=${YTConstants.TYPE}`,
+      `maxResults=${YTConstants.MAX_RESULTS}`
     ].join('&');
 
     const queryUrl = `${YTConstants.API_URL}?${params}`;

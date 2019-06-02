@@ -28,14 +28,14 @@ export class SearchHomeComponent implements OnInit {
     this.resultList = [];
     this.filteringRes = results;
 
-    for (let i = this.filteringRes.length - 1; i >= 0; --i) {
+    for (let i = this.filteringRes.length - 1; i >= 0; --i) { // If Video is watced already it is pushed out of the Video Array
       if (this.watchedUrl.indexOf(this.filteringRes[i].id) === -1) {
         this.filteredArr.push(this.filteringRes[i]);
       }
     }
-    this.resultList = this.filteredArr;
+    this.resultList = this.filteredArr; // Filtered Results List
     if (this.resultList.length === 0) {
-      this.message = YTConstants.NOT_FOUND;
+      this.message = YTConstants.NOT_FOUND; // Video Not Found
     } else {
       this.message = YTConstants.TOP_RESULTS;
     }

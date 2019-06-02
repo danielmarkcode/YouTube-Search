@@ -10,20 +10,16 @@ import { YoutubeDataService } from '../services/youtube-data.service';
 export class SearchListComponent implements OnInit {
 
   @Input() result: VideoObj;
-  watchedVideo: any = [];
-  res: any = [];
+  watchHistoryData: any;
 
-  data: string;
   constructor(public watchHistory: YoutubeDataService) { }
 
   ngOnInit() {
-    this.watchHistory.currentMessage.subscribe(message => this.data = message);
+    this.watchHistory.currentMessage.subscribe(message => this.watchHistoryData = message);
   }
 
   openVideo() {
-    window.open(this.result.videoUrl);
-    this.watchedVideo = this.result.id;
-    this.watchHistory.pushTo(this.watchedVideo); // Remove watched Video from search list
-    return this.watchedVideo;
+    window.open(this.result.videoUrl); // Open Video on Click on thumbnail
+    this.watchHistory.pushTo(this.result); // Remove watched Video from search list
   }
 }

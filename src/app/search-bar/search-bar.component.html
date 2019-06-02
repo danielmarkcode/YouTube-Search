@@ -1,2 +1,28 @@
-<input type="text" class="form-control" placeholder="Search" autofocus autocomplete="on" title="Click to Search"> 
-<button class="btn btn-danger" (click)="homePageLoad();">Click to Load <strong>YouTube</strong> Home</button>
+<input type="text" class="form-control" placeholder="Search" autofocus autocomplete="on" title="Click to Search"><br>
+<div class="btn-group">
+    <button class="btn btn-danger" (click)="homePageLoad();">Launch <strong>YouTube</strong> Home</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#watchHistoryModel"
+        (click)="watchHistoryLoad();">Load <strong>Watch History</strong></button>
+</div>
+<div class="container">
+
+    <div class="modal fade" id="watchHistoryModel">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Watch History</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="row">
+                    <app-search-list *ngFor="let watchedUrl of watchedUrl" [result]="watchedUrl"></app-search-list>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>

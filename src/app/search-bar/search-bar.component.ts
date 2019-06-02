@@ -3,6 +3,8 @@ import { fromEvent } from 'rxjs';
 import { map, filter, debounceTime, tap, switchAll } from 'rxjs/operators';
 import { VideoObj } from '../utils/youtube-video.model';
 import { SearchService } from '../services/youtube-search.service';
+import { YoutubeDataService } from '../services/youtube-data.service';
+import { YTConstants } from '../utils/youtube-constants';
 
 @Component({
   selector: 'app-search-bar',
@@ -14,19 +16,21 @@ export class SearchBarComponent implements OnInit {
 
   @Output() loading = new EventEmitter<boolean>();
   @Output() results = new EventEmitter<VideoObj[]>();
+  watchedUrlObj: any;
+  watchedUrl: any = [];
 
-  constructor(private youtube: SearchService, private el: ElementRef) { }
+  constructor(private youtube: SearchService, private el: ElementRef, public watchHistory: YoutubeDataService) { }
 
   ngOnInit() {
-    // Use`keyup`  => observable stream
-    fromEvent(this.el.nativeElement, 'keyup').pipe(
-      map((e: any) => e.target.value), // get the value of the input
-      filter(text => text.length > 1), // filter if empty
-      debounceTime(500), //  once every 500ms
-      tap(() => this.loading.emit(true)), //  loading
-      map((query: string) => this.youtube.search(query)), // search
-      switchAll()) // produces values ignoring previous streams.
-      .subscribe(  // manipulate on the return of the search
+
+    fromEvent(this.el.nativeElement, 'keyup').pipe(  // Use`keyup`  => observable stream
+      map((e: any) => e.target.value),               // get the value of the input
+      filter(text => text.length > 1),               // filter if empty
+      debounceTime(500),                             //  once every 500ms key press event
+      tap(() => this.loading.emit(true)),
+      map((query: string) => this.youtube.search(query)), // search service launched for the query
+      switchAll())                                    // produces values ignoring previous streams.
+      .subscribe(                                     // manipulate on the return of the search
         _results => {
           this.loading.emit(false);
           this.results.emit(_results);
@@ -41,8 +45,8 @@ export class SearchBarComponent implements OnInit {
       );
   }
 
-  homePageLoad() {
-      this.youtube.search('Indian News Live')
+  homePageLoad() { // Load Home Page Results
+    this.youtube.search(YTConstants.YT_HOME_PAGE)
       .subscribe(
         _results => {
           this.loading.emit(false);
@@ -57,4 +61,11 @@ export class SearchBarComponent implements OnInit {
         }
       );
   }
-}
+
+  watchHistoryLoad() { // Load Home Page Results
+    this.watchHistory.currentWatched.subscribe(
+      message => (this.watchedUrlObj = message)
+    );
+    this.watchedUrl.push(this.watchedUrlObj);  // Pushing to Watch History Array
+    }
+  }
