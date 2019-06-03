@@ -1,5 +1,4 @@
 ## YOUTUBE SEARCH PROJECT DESCRIPTION
- Assignment for MillionEyes: Youtube Video Search Web Application Using YouTube Search API
 
 
 ##Install NodeJS
