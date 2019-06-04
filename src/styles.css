@@ -59,8 +59,15 @@ h2 {
   height: 215px;
 }
 
+.modal-backdrop.show {
+  opacity: 1;
+}
+
 .view.rgba-white-slight.waves-light {
   height: 200px;
+}
+.col-md-4 {
+  padding: 0;
 }
 
 
@@ -69,6 +76,7 @@ h2 {
       -ms-flex: 0 0 33.333333%;
       flex: 0 0 33.333333%;
       width: 100%;
+      padding: 0;
   }}
 
  
