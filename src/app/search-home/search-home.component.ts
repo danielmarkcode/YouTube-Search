@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VideoObj } from '../utils/youtube-video.model';
 import { YoutubeDataService } from '../services/youtube-data.service';
 import { YTConstants } from '../utils/youtube-constants';
+import { SearchService } from '../services/youtube-search.service';
 
 @Component({
   selector: 'app-search-home',
@@ -15,8 +16,11 @@ export class SearchHomeComponent implements OnInit {
   message = '';
   watchedUrl: any;
   filteringRes: VideoObj[];
+  searchResponse: any;
+  queryKey: any;
+  newArr: VideoObj[];
 
-  constructor(public watchHistory: YoutubeDataService) { }
+  constructor(public watchHistory: YoutubeDataService, private youtube: SearchService) { }
   ngOnInit() {
     this.watchHistory.currentMessage.subscribe(
       message => (this.watchedUrl = message)
@@ -41,16 +45,23 @@ export class SearchHomeComponent implements OnInit {
     }
   }
 
-  w3_open() {
-    document.getElementById('main').style.marginLeft = '20%';
-    document.getElementById('mySidebar').style.width = '20%';
-    document.getElementById('mySidebar').style.display = 'block';
-    document.getElementById('openNav').style.display = 'none';
+  onScroll () {
+    console.log('onScroll()');
+    this.youtube.searchMessage.subscribe(
+      message => (this.searchResponse = message)
+    );
+    this.youtube.queryMessage.subscribe(
+      message => (this.queryKey = message)
+    );
+    console.log('RecievedNextPageToken', this.searchResponse.nextPageToken);
+    console.log('TypedQuery', this.queryKey);
+    this.youtube.lazySearch(this.queryKey , this.searchResponse.nextPageToken).subscribe(
+    message => (this.newArr = message)
+  );
+  console.log(this.newArr);
+  for (let i = this.newArr.length - 1; i >= 0; --i) { // If Video is watced already it is pushed out of the Video Array
+      this.resultList.push(this.newArr[i]);
   }
-  w3_close() {
-    document.getElementById('main').style.marginLeft = '0%';
-    document.getElementById('mySidebar').style.display = 'none';
-    document.getElementById('openNav').style.display = 'inline-block';
   }
 
   loadTrending() {

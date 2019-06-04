@@ -1,118 +1,155 @@
 .footer {
-  bottom: 0;
-  left: 0;
   position: fixed;
-  width: 100%;
-  height: 4em;
-  overflow: hidden;
-  margin: 0 auto;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  transition: all 1s ease;
-  z-index: 999;
-}
-
-.footer #container {
-  margin-top: 5px;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  top: 0;
   left: 0;
-  background: #3A3A3A;
-}
-
-.footer #cont {
-  position: relative;
-  top: -70px;
-  right: 190px;
-  width: 150px;
-  height: auto;
-  margin: 0 auto;
-}
-
-.footer_center {
-  width: 500px;
-  float: left;
-  text-align: center;
-}
-
-.footer h3 {
-  font-family: 'Helvetica';
-  font-size: 20px;
-  font-weight: 100;
-  margin-top: 85px;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  clear: both;
+  background-color: #10101040;
   color: white;
-}
-
-.social-icons {
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-  float: right;
-  padding-top: 5px;
-}
-
-.social-icons li {
-  display: inline-block;
-  margin-bottom: 4px
-}
-
-.social-icons li.title {
-  margin-right: 15px;
-  text-transform: uppercase;
-  color: #96a2b2;
-  font-weight: 700;
-  font-size: 13px
-}
-
-.social-icons a {
-  background-color: #eceeef;
-  color: #818a91;
-  font-size: 16px;
-  display: inline-block;
-  line-height: 44px;
-  width: 44px;
-  height: 44px;
   text-align: center;
-  margin-right: 8px;
-  border-radius: 100%;
-  -webkit-transition: all .2s linear;
-  -o-transition: all .2s linear;
-  transition: all .2s linear
+  height: 20px;
+}
+.footer p {
+  margin: 0;
+  padding-right: 1%;
+  margin: auto;
+  font-family: "Segoe UI Webfont",-apple-system,"Helvetica Neue","Lucida Grande","Roboto","Ebrima","Nirmala UI","Gadugi","Segoe Xbox Symbol","Segoe UI Symbol","Meiryo UI","Khmer UI","Tunga","Lao UI","Raavi","Iskoola Pota","Latha","Leelawadee","Microsoft YaHei UI","Microsoft JhengHei UI","Malgun Gothic","Estrangelo Edessa","Microsoft Himalaya","Microsoft New Tai Lue","Microsoft PhagsPa","Microsoft Tai Le","Microsoft Yi Baiti","Mongolian Baiti","MV Boli","Myanmar Text","Cambria Math";
+  font-size: 12px;  padding-top: 2px;
+
 }
 
-.social-icons a:active,
-.social-icons a:focus,
-.social-icons a:hover {
-  color: rgb(255, 255, 255);
-  background-color: #0e70b7;
+.footer-name:hover {
+  color: rgb(42, 151, 253);
+  cursor: pointer;
 }
 
-.social-icons.size-sm a {
-  line-height: 34px;
-  height: 34px;
-  width: 34px;
-  font-size: 14px
+.footer-company {
+  color: red;
 }
 
-.social-icons a.facebook:hover {
-  background-color: #3b5998
+a{
+  border: none;
+  cursor: pointer;
+}
+.logo {
+  width: 100px;
+  cursor: pointer;
 }
 
-.social-icons .github:hover {
-  background-color: #000;
+.bg-dark {
+  padding-left: 0;
+}
+.navbar-dark .navbar-toggler {
+  color: rgba(255,255,255,.5);
+  border-color: rgba(132, 88, 88, 0);
+  width: 100%;
+  padding-left: 0;
+  height: auto;
 }
 
-.social-icons a.linkedin:hover {
-  background-color: #007bb6
+.navbar-dark .navbar-toggler-icon {
+  float: left;
+  margin-left: 10px;
 }
 
-.nameHover:hover {
-  color: black;
-  transition: font-size 1s;
+.navbar-toggler:focus, .navbar-toggler:hover {
+  text-decoration: none;
+  outline: none;
+}
+
+.profile-card-1 {
+  font-family: 'Open Sans', Arial, sans-serif;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  height: 368px;
+  border: none;
+  width: 300px;
+}
+
+.profile-card-1 .background {
+  width: 100%;
+  vertical-align: top;
+  opacity: 0.9;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  -webkit-transform: scale(1.8);
+  transform: scale(2.8);
+}
+
+.profile-card-1 .card-content {
+  width: 100%;
+  padding: 15px 25px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.profile-card-1 .profile {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  max-width: 100px;
+  opacity: 1;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 1);
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+
+.profile-card-1 h2 {
+  margin: 0 0 5px;
+  font-weight: 600;
   font-size: 25px;
+}
 
+.profile-card-1 h2 small {
+  display: block;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.profile-card-1 i {
+  display: inline-block;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  border: 1px solid #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.profile-card-1 .icon-block {
+  float: left;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.profile-card-1 .icon-block a {
+  text-decoration: none;
+}
+
+.profile-card-1 i:hover {
+  background-color: #fff;
+  color: #2E3434;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.modal-content {
+  background-color: #ffffff00;
+  width: 300px;
+  height: 290px;
+  margin: auto;
+  border: none;
+  box-shadow: none;
 }

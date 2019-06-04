@@ -6,40 +6,8 @@
 
 .form-control {
   width: 75%;
-
-}
-
-.btn-group,
-.btn-group-vertical {
-  width: 105%;
-}
-
-.btn {
-  min-width: 20%;
-  margin-top: 10px;
-  margin-right: 1%;
-  padding: 0;
-  font-size: 10pt;
+  background-color: black;
   color: white;
-  background-color: #464646;
-  height: 30px;
-  border: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
-}
-
-.btn:hover {
-  color: white;
-  background-color: #000;
-  font-size: 10.5pt;
-  transition: font-size 0.1s;
-}
-
-.btn:hover strong {
-  color: red;
-  transition: color 0.7s;
-
 }
 
 @media (min-width: 768px) {
@@ -47,4 +15,26 @@
     width: 90%;
     margin: 30px auto;
   }
+}
+
+.btn-dark {
+  margin-right: 10px;
+  color: white;
+}
+
+.btn {
+  width: 200px;
+  font-size: 13px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 10px;
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: 5%;
+  width: 100%;
 }

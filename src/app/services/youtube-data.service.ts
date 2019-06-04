@@ -25,7 +25,5 @@ export class YoutubeDataService {
     this.watchedResults.push(watchedVideo.id);  // Exchanging Watched History ID Information between components
     this.changeMessage(this.watchedResults);
     this.watchedUrlmessage(watchedVideo);
-
-
   }
 }

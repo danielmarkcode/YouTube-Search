@@ -1,9 +1,25 @@
-<div class="col-sm-6 col-md-4">
-  <div class="thumbnail">
-    <img src="{{result.thumbnailUrl}}" (click)="openVideo();">
-    <div class="caption">
-      <h4>{{result.title}}</h4>
-      <p>{{result.description}}</p>
-    </div>
+<!-- Card -->
+<mdb-card class="card">
+  <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+    <!-- Card img -->
+    <mdb-card-img src="{{result.thumbnailUrl}}" alt="Video Thumbnail" (click)="openVideo();" title="Click to View"></mdb-card-img>
+    <a>
+      <div class="mask"></div>
+    </a>
   </div>
-</div>
+  <!--Card content-->
+  <mdb-card-body>
+    <!--Title-->
+    <mdb-card-title>
+      <h5>{{result.title}}</h5>
+    </mdb-card-title>
+
+    <!--Text-->
+    <mdb-card-text> {{result.description}}
+    </mdb-card-text>
+
+    <a (click)="openVideo();" mdbBtn color="danger" mdbWavesEffect>View</a>
+  </mdb-card-body>
+</mdb-card>
+<!-- Card -->
+

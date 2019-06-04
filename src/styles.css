@@ -3,6 +3,8 @@
 
 html {
   overflow-x: hidden;
+  height: 100vh;
+  background-color: #343a40;
 }
 
 .input-group[class*=col-] {
@@ -37,3 +39,36 @@ h2 {
 ::-webkit-scrollbar-thumb:hover {
   background: #464646;
 }
+
+.card {
+  margin: auto;
+  width: 310px;
+  margin-bottom: 10%;
+  font-size: 12px;
+  margin-right: 5%;
+  display: flex;
+  border: none;
+  float: right;
+  height: 440px;
+  text-align: center
+}
+
+.card img {
+  vertical-align: middle;
+  width: 310px;
+  height: 215px;
+}
+
+.view.rgba-white-slight.waves-light {
+  height: 200px;
+}
+
+
+@media (min-width: 768px){
+  .col-md-4 {
+      -ms-flex: 0 0 33.333333%;
+      flex: 0 0 33.333333%;
+      width: 100%;
+  }}
+
+ 
