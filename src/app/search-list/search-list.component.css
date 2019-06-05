@@ -1,9 +1,17 @@
-a.btn.btn-danger {
+a.btn.btn-outline-danger {
   margin-top: 15px;
   color: white;
-}
-
-a.btn.btn-danger:hover {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
   background-color: black;
   border-color: black;
+}
+
+a.btn.btn-outline-danger:hover {
+  background-color: #a80818;
+  border-color: #a80818;
+  color: white;
 }

@@ -13,12 +13,12 @@ export class SearchHomeComponent implements OnInit {
   results: VideoObj[];
   resultList: VideoObj[] = [];
   filteredArr: VideoObj[] = [];
-  message = '';
+  message: any;
   watchedUrl: any;
   filteringRes: VideoObj[];
   searchResponse: any;
   queryKey: any;
-  newArr: VideoObj[];
+  scrollPayload: VideoObj[];
 
   constructor(public watchHistory: YoutubeDataService, private youtube: SearchService) { }
   ngOnInit() {
@@ -45,26 +45,33 @@ export class SearchHomeComponent implements OnInit {
     }
   }
 
-  onScroll () {
+  onScroll() {
     console.log('onScroll()');
     this.youtube.searchMessage.subscribe(
       message => (this.searchResponse = message)
-    );
+    ); console.log(this.searchResponse);
+
     this.youtube.queryMessage.subscribe(
       message => (this.queryKey = message)
     );
-    console.log('RecievedNextPageToken', this.searchResponse.nextPageToken);
-    console.log('TypedQuery', this.queryKey);
-    this.youtube.lazySearch(this.queryKey , this.searchResponse.nextPageToken).subscribe(
-    message => (this.newArr = message)
-  );
-  console.log(this.newArr);
-  for (let i = this.newArr.length - 1; i >= 0; --i) { // If Video is watced already it is pushed out of the Video Array
-      this.resultList.push(this.newArr[i]);
-  }
+    this.youtube.lazySearch(this.queryKey, this.searchResponse.nextPageToken, YTConstants.MAX_SCROLL)
+      .subscribe(
+        async _results => {
+          this.scrollPayload = _results;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    if (this.scrollPayload !== undefined) {
+      for (let i = this.scrollPayload.length - 1; i >= 0; --i) { // If Video is watced already it is pushed out of the Video Array
+        this.resultList.push(this.scrollPayload[i]);
+      }
+    }
+
+    console.log(this.resultList);
+
   }
 
-  loadTrending() {
-    window.open(YTConstants.TRENDING_URL);
-  }
 }
+

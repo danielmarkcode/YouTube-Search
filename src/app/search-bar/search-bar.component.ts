@@ -14,7 +14,6 @@ import { YTConstants } from '../utils/youtube-constants';
 export class SearchBarComponent implements OnInit {
 
 
-  @Output() loading = new EventEmitter<boolean>();
   @Output() results = new EventEmitter<VideoObj[]>();
   watchedUrlObj: any;
   watchedUrl: any = [];
@@ -27,20 +26,14 @@ export class SearchBarComponent implements OnInit {
       map((e: any) => e.target.value),               // get the value of the input
       filter(text => text.length > 1),               // filter if empty
       debounceTime(500),                             //  once every 500ms key press event
-      tap(() => this.loading.emit(true)),
       map((query: string) => this.youtube.search(query)), // search service launched for the query
       switchAll())                                    // produces values ignoring previous streams.
       .subscribe(                                     // manipulate on the return of the search
         _results => {
-          this.loading.emit(false);
           this.results.emit(_results);
         },
         err => {
           console.log(err);
-          this.loading.emit(false);
-        },
-        () => {
-          this.loading.emit(false);
         }
       );
   }
@@ -49,15 +42,10 @@ export class SearchBarComponent implements OnInit {
     this.youtube.search(YTConstants.YT_HOME_PAGE)
       .subscribe(
         _results => {
-          this.loading.emit(false);
           this.results.emit(_results);
         },
         err => {
           console.log(err);
-          this.loading.emit(false);
-        },
-        () => {
-          this.loading.emit(false);
         }
       );
   }

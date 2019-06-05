@@ -45,21 +45,21 @@ export class SearchService {
 
 
 
-  lazySearch(query: string, nextPage: any): Observable<VideoObj[]> { // Search Service
+  lazySearch(query: string, nextPage: any, maxResult: number): Observable<VideoObj[]> { // Search Service
     const params: string = [ // Search Service query Params
-      `pagetoken=${nextPage}`,
+      `pageToken=${nextPage}`,
       `q=${query}`,
       `key=${YTConstants.API_KEY}`,
       `part=${YTConstants.PART}`,
       `type=${YTConstants.TYPE}`,
-      `maxResults=${YTConstants.MAX_RESULTS}`
+      `maxResults=${maxResult}`
     ].join('&');
 
     const queryUrl = `${YTConstants.API_URL}?${params}`;
-    this.searchedQuery.next(query); // Exchanging Information between components
-
+    console.log(queryUrl);
     return this.http.get(queryUrl).pipe(map(response => {
       this.searchReponse.next(response); // Exchanging Information between components
+      console.log(response);
       return response['items'].map(item => {
         return new VideoObj({
           id: item.id.videoId,

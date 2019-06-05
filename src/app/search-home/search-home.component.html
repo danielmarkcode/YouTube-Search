@@ -1,21 +1,19 @@
-  <div class='container'
-  infiniteScroll
-  [infiniteScrollDistance]="0.5"
-  [infiniteScrollThrottle]="500"
-  (scrolled)="onScroll()">
-    <div class="page-header">
-      <img class="loading" *ngIf="loading" src='assets/images/loading.gif' />
-    </div>
-
-    <div class="search-row">
-      <div class="input-group input-group-lg col-sm-8 col-md-8">
-        <app-search-bar (loading)="loading = $event" (results)="fetchResult($event)" autocomplete="on"></app-search-bar>
-      </div>
-    </div>
-
-    <div class="row">
-
-      <p>{{message}}</p>
-      <app-search-list *ngFor="let resultList of resultList" [result]="resultList"></app-search-list>
+<div class='container' 
+infinite-scroll 
+[infiniteScrollDistance]="1" 
+[infiniteScrollThrottle]="1000" 
+[scrollWindow]="true" 
+[alwaysCallback]=true
+(scrolled)="onScroll()">
+  <div class="search-row">
+    <div class="input-group input-group-lg col-sm-8 col-md-8">
+      <app-search-bar (results)="fetchResult($event)" autocomplete="on"></app-search-bar>
     </div>
   </div>
+
+  <div class="row">
+
+    <p>{{message}}</p>
+    <app-search-list *ngFor="let resultList of resultList" [result]="resultList"></app-search-list>
+  </div>
+</div>
