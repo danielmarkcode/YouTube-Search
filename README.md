@@ -19,9 +19,7 @@ Type `npm install` Click `ENTER`
 After installation of dependencies move to next step.
 
 ## Build the Application 
-Run `npm run-script build` to bring up the server. 
-Navigate to `http://127.0.0.1:8081/`to view the web application
-
+Run `npm run-script build` to build the App. 
 
 ## Launch Development server
 Run `npm run-script start` to bring up the server. 
