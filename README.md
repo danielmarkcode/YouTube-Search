@@ -18,10 +18,14 @@ Open command line in the root folder of the codebase
 Type `NPM INSTALL` Click `ENTER`
 After completion of dependencies move to next step.
 
+## Build the Application 
+Run `npm run-script build` to bring up the server. 
+Navigate to `http://127.0.0.1:8081/`to view the web application
+
 
 ## Launch Development server
-Run `NPM START` to bring up the server. 
-Navigate to `http://localhost:4200/`to view the web application
+Run `npm run-script start` to bring up the server. 
+Navigate to `http://localhost:8081/`to view the web application
 
 
 ## Contact Developer

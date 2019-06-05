@@ -11,6 +11,8 @@ import { Http404Component } from './utils/http404/http404.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ButtonsModule, WavesModule, CardsFreeModule , NavbarModule } from 'angular-bootstrap-md';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { ButtonsModule, WavesModule, CardsFreeModule , NavbarModule } from 'angu
     AppRoutingModule,
     InfiniteScrollModule,
     MDBBootstrapModule,
-    ButtonsModule, WavesModule, CardsFreeModule, NavbarModule
+    ButtonsModule, WavesModule, CardsFreeModule, NavbarModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [SearchService],
