@@ -1,10 +1,5 @@
-<div class='container' 
-infinite-scroll 
-[infiniteScrollDistance]="1" 
-[infiniteScrollThrottle]="1000" 
-[scrollWindow]="true" 
-[alwaysCallback]=true
-(scrolled)="onScroll()">
+<div class='container' infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="1000"
+  [scrollWindow]="true" [alwaysCallback]=true (scrolled)="onScroll()">
   <div class="search-row">
     <div class="input-group input-group-lg col-sm-8 col-md-8">
       <app-search-bar (results)="fetchResult($event)" autocomplete="on"></app-search-bar>

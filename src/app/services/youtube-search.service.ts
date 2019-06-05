@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { YTConstants } from '../utils/youtube-constants';
-import { Observable , BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { VideoObj } from '../utils/youtube-video.model';
 
 @Injectable({
@@ -56,10 +56,8 @@ export class SearchService {
     ].join('&');
 
     const queryUrl = `${YTConstants.API_URL}?${params}`;
-    console.log(queryUrl);
     return this.http.get(queryUrl).pipe(map(response => {
       this.searchReponse.next(response); // Exchanging Information between components
-      console.log(response);
       return response['items'].map(item => {
         return new VideoObj({
           id: item.id.videoId,

@@ -46,10 +46,9 @@ export class SearchHomeComponent implements OnInit {
   }
 
   onScroll() {
-    console.log('onScroll()');
     this.youtube.searchMessage.subscribe(
       message => (this.searchResponse = message)
-    ); console.log(this.searchResponse);
+    );
 
     this.youtube.queryMessage.subscribe(
       message => (this.queryKey = message)
@@ -68,9 +67,6 @@ export class SearchHomeComponent implements OnInit {
         this.resultList.push(this.scrollPayload[i]);
       }
     }
-
-    console.log(this.resultList);
-
   }
 
 }

@@ -55,5 +55,5 @@ export class SearchBarComponent implements OnInit {
       message => (this.watchedUrlObj = message)
     );
     this.watchedUrl.push(this.watchedUrlObj);  // Pushing to Watch History Array
-    }
   }
+}

@@ -10,7 +10,6 @@ import { YoutubeDataService } from '../services/youtube-data.service';
 export class SearchListComponent implements OnInit {
 
   @Input() result: VideoObj;
-  @Input() loading: boolean;
 
   watchHistoryData: any;
 
