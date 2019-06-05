@@ -15,8 +15,8 @@ Navigate to the root of the codebase
 
 ## Install Dependencies
 Open command line in the root folder of the codebase
-Type `NPM INSTALL` Click `ENTER`
-After completion of dependencies move to next step.
+Type `npm install` Click `ENTER`
+After installation of dependencies move to next step.
 
 ## Build the Application 
 Run `npm run-script build` to bring up the server. 
@@ -25,8 +25,9 @@ Navigate to `http://127.0.0.1:8081/`to view the web application
 
 ## Launch Development server
 Run `npm run-script start` to bring up the server. 
-Navigate to `http://localhost:8081/`to view the web application
+Navigate to `http://localhost:3000/`to view the web application
 
+## Check for PWA Capabilites using OfflineMode/Lighthouse
 
 ## Contact Developer
 
